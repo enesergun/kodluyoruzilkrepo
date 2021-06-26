@@ -1,0 +1,25 @@
+
+.search {
+    background-color: #EEE;
+}
+
+.input-search {
+    display: block;
+}
+
+.left {
+    background-color: #7EE5DA;
+}
+
+.middle {
+    background-color: #70CCC2;
+}
+
+.right {
+    background-color:#62B3AA;
+}
+
+
+.container {
+    display: flex;
+}

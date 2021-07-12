@@ -12,6 +12,11 @@ body {
     color: #B02A37;
 }
 
+.img-size {
+    width: 250px;
+    height: 250px;
+}
+
 .navbar-toggler {
     background-color: whitesmoke;
 }
@@ -26,9 +31,38 @@ body {
     margin: 20px 0;
 }
 
-.product-list-wrap h3 {
+.product-list-wrap h3,
+.sub-title {
     color: #F2CF63;
-}
+} 
 ul {
     list-style-position: inside;
+}
+.card {
+    align-items: center;
+}
+
+.card-title {
+    color: #8C68CD;
+    font-size: 20px;
+}
+
+
+.price {
+    background-color: #212529;
+    border-radius: 30px;
+    padding: 5px 10px;
+    color: whitesmoke;
+}
+
+.nav-link:hover {
+    color: white;
+}
+.navbar-brand:hover {
+    color: #971d29;
+}
+
+.about-card {
+    background-color: transparent;
+    border: none;
 }

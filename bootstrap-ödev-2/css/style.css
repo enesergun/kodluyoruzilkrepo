@@ -1,0 +1,27 @@
+::placeholder{
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+    background: url('../icons/search-solid.svg') no-repeat;
+    background-position: 38%;
+    background-size: 6%;
+  }
+body {
+    height: 200vh;
+}
+
+
+nav {
+    height: 54px;
+    padding-bottom: 15px;
+}
+
+.container-fluid {
+    justify-content: space-evenly !important; 
+}
+
+.logo {
+    margin-left: 60px;
+}
+
+

@@ -8,6 +8,7 @@
   }
 body {
     height: 200vh;
+    background: #FAFAFA;
 }
 
 
@@ -42,4 +43,16 @@ nav {
 
 .switch  {
     margin-left: 66px;
+    font-size: 13px;
+    color: rgb(0, 149, 246);
 }
+
+.profile-section {
+    padding: 0;
+}
+
+.username,
+.name {
+    font-size: 13px;
+}
+

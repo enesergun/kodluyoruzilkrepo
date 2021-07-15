@@ -25,3 +25,21 @@ nav {
 }
 
 
+.container {
+    margin-top: 86px;
+}
+
+.account {
+    align-items: center;
+}
+
+.story-img-wrapper {
+    padding: 1px;
+    border-radius: 50%;
+    /* border: 3px solid; */
+    background: linear-gradient(90deg, rgba(249,156,73,1) 14%, rgba(221,44,114,1) 56%, rgba(197,41,146,1) 85%);
+}
+
+.switch  {
+    margin-left: 66px;
+}

@@ -35,6 +35,12 @@
     top: 17px;
 }
 
+.content {
+    border-radius: 20px;
+    padding: 23px;
+    font-size: 14px;
+}
+
 
 @media screen and (max-width: 987px) {
     .right-panel {

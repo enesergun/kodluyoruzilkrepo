@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #343A40;
+    color: #e98208;
+    letter-spacing: 7px;
+    text-align: center;
+}
+
+
+.container {
+    margin: 120px auto;
+    max-width: 1112px;
+    
+}
+
+.clock {
+    margin: 15px 0;
+    font-size: 60px;
+}
+
+
+.message {
+    font-size: 50px;
+}
+
+.description {
+    font-size: 40px;
+    line-height: 60px;
+}

@@ -19,6 +19,7 @@ for (let i = 0; i < close.length; i++) {
 	}
 }
 
+
 // checked
 
 ul.addEventListener('click', (e) => {
@@ -33,10 +34,11 @@ function newElement() {
 	var inputValue = document.getElementById("task").value;
 	var t = document.createTextNode(inputValue);
 	listElement.appendChild(t);
-	if (inputValue === '') {
-	  alert("You must write something!");
+	if (inputValue === "") {
+		$(".error").toast("show");
 	} else {
-	  document.getElementById("list").appendChild(listElement);
+		$(".success").toast("show");
+	  	document.getElementById("list").appendChild(listElement);
 	}
 	document.getElementById("task").value = "";
   

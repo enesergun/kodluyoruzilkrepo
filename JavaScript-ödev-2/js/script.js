@@ -1,8 +1,8 @@
 let ul = document.getElementById('list');
 let li = ul.getElementsByTagName('li');
 
+// close button
 for (let i = 0; i < li.length; i++) {
-	console.log(i)
 	let span = document.createElement('span');
 	let spanHTML = `×`
 	span.classList.add('close')
@@ -10,15 +10,12 @@ for (let i = 0; i < li.length; i++) {
 	li[i].appendChild(span)
 }
 
+//when click close button hide the list element
+let close = document.getElementsByClassName('close');
+for (let i = 0; i < close.length; i++) {
+	close[i].onclick = function() {
+		let div = this.parentElement;
+		div.style.display = "none";
+	}
+}
 
-
-
-
-
-
-
-
-/* let span = document.createElement('span');
-	let spanHTML = `<button type="button" class="btn-close" aria-label="Close"></button>`
-	span.innerHTML = spanHTML;
-	element.appendChild(span) */

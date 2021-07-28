@@ -81,9 +81,9 @@ const menu = [
 	  desc: `Red bean paste dessert, serving with honey.`,
 	},
   ];
+  const section = document.querySelector(".section-center");
 
-
-for (let i = 0; i < menu.length; i++) {
+/* for (let i = 0; i < menu.length; i++) {
 	let sectionCenter = document.querySelector('.section-center');
 
 	let divMenuItem = document.createElement('div');
@@ -114,5 +114,61 @@ for (let i = 0; i < menu.length; i++) {
 	menuInfo.appendChild(menuText);
 	menuTitle.appendChild(menuTitleHeader);
 	menuTitle.appendChild(menuTitlePrice);
+} */
+
+let btnContainer = document.querySelector('.btn-container');
+
+let btnElementAll = document.createElement('div');
+let btnElementKorea = document.createElement('div');
+let btnElementJapan = document.createElement('div');
+let btnElementChina = document.createElement('div');
+
+btnElementAll.innerHTML = `<button class="btn btn-outline-dark btn-item" data-id="All">All</button>`;
+btnElementKorea.innerHTML = `<button class="btn btn-outline-dark btn-item" data-id="Korea">Korea</button>`;
+btnElementJapan.innerHTML = `<button class="btn btn-outline-dark btn-item" data-id="Japan">Japan</button>`;
+btnElementChina.innerHTML = `<button class="btn btn-outline-dark btn-item" data-id="China">China</button>`;
+
+btnContainer.appendChild(btnElementAll);
+btnContainer.appendChild(btnElementKorea);
+btnContainer.appendChild(btnElementJapan);
+btnContainer.appendChild(btnElementChina);
+
+const filterBtns = document.querySelectorAll(".btn-item");
+
+  filterBtns.forEach((btn) => {  
+    btn.addEventListener("click", (e) => {
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter((menuItem) => {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+      if (category === "All") {
+        menuList(menu);
+      } else {
+        menuList(menuCategory);
+      }
+    });
+  });
+  
+const menuList = (menuItems) => {
+	let displayMenu = menuItems.map((item) => {
+	  return `<div class="menu-items col-lg-6 col-sm-12">
+			  <img src=${item.img} alt=${item.title} class="photo"/>
+			  <div class="menu-info">
+				<div class="menu-title">
+				  <h4>${item.title}</h4>
+				  <h4 class="price">${item.price}</h4>
+				</div>
+				<div class="menu-text">
+				  ${item.desc}
+				</div>
+			  </div>
+			</div>
+	  `;
+	});
+	displayMenu = displayMenu.join("");
+	section.innerHTML = displayMenu;
 }
 
+menuList(menu);

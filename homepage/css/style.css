@@ -1,6 +1,5 @@
 body {
-    background-color: #705E78 !important;
-    color: #812F33 !important;
+    background-color: #324252;
 }
 
 
@@ -11,8 +10,39 @@ body {
 .accordion {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+.accordion-item {
+    border: none;
+}
 
 .accordion-button {
-    background-color: #A5AAA3 !important;
-    color: #812F33 !important;
+    background-color: #324252 ;
+    color: #FFBF5E !important;
+
+}
+
+.patika-link {
+    color: #FFBF5E;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #324252;
+}
+
+.accordion-collapse {
+    background-color: rgba(50, 66, 82, 0.945);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgb(255 191 94 / 25%);
+    /* box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; */
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+li a {
+    text-decoration: none;
+    color: #FFBF5E;
 }

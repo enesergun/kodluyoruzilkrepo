@@ -1,7 +1,20 @@
 # Kodluyoruz Ilk Repo
-Bu repo Kodluyoruz Front-End Eğitiminde oluşturduğumuz ilk repo. İçerisinde bir adet README dosyası, bir adet de index.html barındırıyor.
+Bu repo Kodluyoruz Front-End Eğitiminde oluşturduğumuz ilk repo. İçerisinde eğitim süresince yapılan projeler yer alıyor.
 
 ![](img/project-pic.png)
+
+# Projeleri Görmek İçin
+
+| Projects  | Live Demo |
+|-----------|:---------|
+|  Blog     | [Live Demo]()   |
+|  Google Beta | [Live Demo]()  |
+| Müzik Dükkanım  | [Live Demo]()  |
+| Müzik Dükkanım Bootstrap Edition  | [Live Demo]()  |
+|  Instagram Clone | [Live Demo]()  |
+| Lınkedln Clone  | [Live Demo]()  |
+| Dıgıtal Clock  | [Live Demo]()  |
+| Kodluyoruz TODO  |  [Live Demo]() |
 
 
 

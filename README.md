@@ -7,14 +7,15 @@ Bu repo Kodluyoruz Front-End Eğitiminde oluşturduğumuz ilk repo. İçerisinde
 
 | Projects  | Live Demo |
 |-----------|:---------|
-|  Blog     | [Live Demo]()   |
-|  Google Beta | [Live Demo]()  |
-| Müzik Dükkanım  | [Live Demo]()  |
-| Müzik Dükkanım Bootstrap Edition  | [Live Demo]()  |
-|  Instagram Clone | [Live Demo]()  |
-| Lınkedln Clone  | [Live Demo]()  |
-| Dıgıtal Clock  | [Live Demo]()  |
-| Kodluyoruz TODO  |  [Live Demo]() |
+|  Blog     | [Live Demo](https://patikadevprojects.vercel.app/%C3%B6dev-2/index.html)  |
+|  Google Beta | [Live Demo](https://patikadevprojects.vercel.app/%C3%B6dev-3/index.html)  |
+| Müzik Dükkanım  | [Live Demo](https://patikadevprojects.vercel.app/css-%C3%B6dev-1/index.html)  |
+| Müzik Dükkanım Bootstrap Edition  | [Live Demo](https://patikadevprojects.vercel.app/bootstrap-%C3%B6dev-1/)  |
+|  Instagram Clone | [Live Demo](https://patikadevprojects.vercel.app/bootstrap-%C3%B6dev-2/)  |
+| Lınkedln Clone  | [Live Demo](https://patikadevprojects.vercel.app/bootstrap-%C3%B6dev-3/)  |
+| Dıgıtal Clock  | [Live Demo](https://patikadevprojects.vercel.app/JavaScript-%C3%B6dev-1/)  |
+| Kodluyoruz TODO  |  [Live Demo](https://patikadevprojects.vercel.app/JavaScript-%C3%B6dev-2/) |
+| Asian's Kitchen's Menu | [Live Demo](https://patikadevprojects.vercel.app/JavaScript-%C3%B6dev-3/)
 
 
 

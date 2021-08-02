@@ -3,11 +3,15 @@ import React from 'react'
 function List({ todos }) {
   return (
     <div>
-      <ul className="list">
+      <ul className="todo-list">
 				{todos.map((todoItem, i) => (
 					<li key={i}>
-						<span>{todoItem.todo}</span>
-					</li>
+						<div className="view">
+							<input className="toggle" type="checkbox"  />
+							<label>{todoItem.todo}</label>
+							<button className="destroy">x</button>
+						</div>
+				</li>
 				))}
 			</ul>
     </div>

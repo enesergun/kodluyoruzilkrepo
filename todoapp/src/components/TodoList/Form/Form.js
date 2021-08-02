@@ -27,8 +27,8 @@ function Form({ addTodos, todos }) {
 		<form onSubmit={onSubmit}>
 				<input
 					name="todo"
-					placeholder="what do you want"
-					/* value={form.todo} */
+					placeholder="What needs to be done?"
+					value={form.todo}
 					onChange={onChangeInput}
 				/>
 				<button>Add</button>

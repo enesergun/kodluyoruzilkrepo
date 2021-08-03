@@ -26,7 +26,7 @@ function Form({ addTodos, todos }) {
 	return (
 		<form onSubmit={onSubmit}>
 				<input
-          className="new-todo"
+          			className="new-todo"
 					name="todo"
 					placeholder="What needs to be done?"
 					value={form.todo}

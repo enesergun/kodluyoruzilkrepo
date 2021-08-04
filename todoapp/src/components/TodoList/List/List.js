@@ -1,32 +1,41 @@
 import { useState } from "react";
 import React from 'react'
 
-function List({ todos }) {
-	const [isChecked, setIsChecked] = useState(false);
-
-
-	let liClass = "";
-	function status() {
-		if (isChecked) {
-			liClass= "completed";
-		}
-	}
+function List(props) {
+	let textDecorationClass = props.todo.completed
+    ? "line-through"
+    : "no-underline";
+  let textColorClass = props.todo.completed
+    ? "text-pink-600"
+    : "text-gray-800";
 	
   return (
-    <div className="main">
-      <ul className="todo-list">
-	  {todos.map((todoItem, i) => (
-		<li className={isChecked} key={i}>
-			<div className="view">
-				<input className="toggle" type="checkbox" onClick={() => setIsChecked(!isChecked)}/>
-				<label>{todoItem.todo}</label>
-				<button className="destroy"></button>
-			</div>
-	  	</li>
-  	))}
-	  </ul>
-    </div>
-  )
+    <li
+      className={`flex items-center space-x-1 py-2.5 px-2.5 border-b border-gray-300 transition duration-300 ease-in ${textDecorationClass} ${textColorClass}`}
+      data-testid="todo-item"
+    >
+      <div className="view">
+		<input
+			name="completed-checkbox"
+			type="checkbox"
+			className="toggle"
+			checked={props.todo.completed}
+			value={props.todo.completed}
+			onChange={() => props.markComplete(props.todo.id)}
+			/* data-testid="task-completed-checkbox" */
+		/>
+		<label>
+			{props.todo.title}
+		</label>
+		<button
+			onClick={() => props.delTodo(props.todo.id)}
+			className="destroy"
+			/* data-testid="delete-task-btn" */
+		>
+		</button>
+	  </div>
+    </li>
+  );
 }
 
 export default List

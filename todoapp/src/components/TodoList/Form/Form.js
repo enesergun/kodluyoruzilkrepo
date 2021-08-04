@@ -1,40 +1,40 @@
 import { useState, useEffect } from "react";
 
-const initialFormValues = { todo: ""};
 
-function Form({ addTodos, todos }) {
-	const [form, setForm] = useState(initialFormValues);
+function Form(props) {
+	const [title, setTitle] = useState("");
 
-	useEffect(() => {
-		setForm(initialFormValues);
-	}, [todos]);
+  const onSubmit = (evt) => {
+    // Stop form being submmited to same file and reloading the page
+    evt.preventDefault();
 
-	const onChangeInput = (e) => {
-		setForm({ ...form, [e.target.name]: e.target.value });
-	};
+    // Validate todo text
+    if (!title) {
+      alert("Please add a task description.");
+      return;
+    }
 
-	const onSubmit = (e) => {
-		e.preventDefault();
+    props.addTodo(title);
 
-		if (form.todo === "") {
-			return false;
-		}
+    // Clear task text in component state
+    setTitle("");
+  };
 
-		addTodos([...todos, form]);
-	};
-
-	return (
-		<form onSubmit={onSubmit}>
-				<input
-          			className="new-todo"
-					name="todo"
-					placeholder="What needs to be done?"
-					value={form.todo}
-					onChange={onChangeInput}
-				/>
-				<button>Add</button>
-		</form>
-	);
+  return (
+    <div className="mx-4 mt-6">
+      <form onSubmit={onSubmit}>
+        <input
+          name="task-title"
+          type="text"
+          placeholder="What needs to be done?"
+          value={title}
+          onChange={(evt) => setTitle(evt.target.value)}
+          className="new-todo"
+          data-testid="task-input-field"
+        />
+      </form>
+    </div>
+  );
 }
 
 export default Form;

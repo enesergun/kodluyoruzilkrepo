@@ -3,7 +3,7 @@ import React from 'react'
 
 function List(props) {
 	let textDecorationClass = props.todo.completed
-    ? "line-through"
+    ? "completed"
     : "no-underline";
   let textColorClass = props.todo.completed
     ? "text-pink-600"

@@ -6,7 +6,9 @@ import axios from 'axios'
 
 
 
-function Weather() {
+function Weather({ values}) {
+    console.log(values)
+    
     return (
         <div>
             

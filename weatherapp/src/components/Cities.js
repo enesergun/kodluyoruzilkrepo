@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useFormik, Formik } from 'formik'
 import axios from 'axios';
 import Weather from "./Weather";
+import CITIES from '../cities'
 
-const CITIES = ['Adana', 'Adıyaman', 'Afyon', 'Ağrı', 'Amasya', 'Ankara', 'Antalya', 'Artvin',
+/* const CITIES = ['Adana', 'Adıyaman', 'Afyon', 'Ağrı', 'Amasya', 'Ankara', 'Antalya', 'Artvin',
 'Aydın', 'Balıkesir', 'Bilecik', 'Bingöl', 'Bitlis', 'Bolu', 'Burdur', 'Bursa', 'Çanakkale',
 'Çankırı', 'Çorum', 'Denizli', 'Diyarbakır', 'Edirne', 'Elazığ', 'Erzincan', 'Erzurum', 'Eskişehir',
 'Gaziantep', 'Giresun', 'Gümüşhane', 'Hakkari', 'Hatay', 'Isparta', 'Mersin', 'İstanbul', 'İzmir', 
@@ -11,25 +12,65 @@ const CITIES = ['Adana', 'Adıyaman', 'Afyon', 'Ağrı', 'Amasya', 'Ankara', 'An
 'Manisa', 'Kahramanmaraş', 'Mardin', 'Muğla', 'Muş', 'Nevşehir', 'Niğde', 'Ordu', 'Rize', 'Sakarya',
 'Samsun', 'Siirt', 'Sinop', 'Sivas', 'Tekirdağ', 'Tokat', 'Trabzon', 'Tunceli', 'Şanlıurfa', 'Uşak',
 'Van', 'Yozgat', 'Zonguldak', 'Aksaray', 'Bayburt', 'Karaman', 'Kırıkkale', 'Batman', 'Şırnak',
-'Bartın', 'Ardahan', 'Iğdır', 'Yalova', 'Karabük', 'Kilis', 'Osmaniye', 'Düzce']
+'Bartın', 'Ardahan', 'Iğdır', 'Yalova', 'Karabük', 'Kilis', 'Osmaniye', 'Düzce'] */
 
 
-/* axios('api.openweathermap.org/data/2.5/weather?q=Burdur&appid=44d66f46cb89e2e484c0cfe9a25a9308') */                    
+/* axios('api.openweathermap.org/data/2.5/weather?q=Burdur&appid=44d66f46cb89e2e484c0cfe9a25a9308') */   
+const API_URL = "https://api.openweathermap.org/data/2.5/onecall?units=metric&lang=tr&";
+const API_KEY = "44d66f46cb89e2e484c0cfe9a25a9308"                 
+/* {
+            return CITIES.indexOf(cInfo);
+        } */
 
 function Cities() {
+    const [city, setCity] = useState("ankara");
+     const [weatherInfo, setWeatherInfo] = useState(null);
+    const [error, setError] = useState(null);
 
-    const cities = axios('https://api.openweathermap.org/data/2.5/weather?q=Burdur&appid=44d66f46cb89e2e484c0cfe9a25a9308')
+
+    const values = {
+        city,
+        error,
+        setCity,
+        weatherInfo
+    };
+
+
+    function fetchWeather(cityInfo) {
+        axios(`${API_URL}lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&appid=${API_KEY}`)
+            .then(response => {
+                setWeatherInfo(response.data);
+            })
+            .catch(err => {
+                console.log(err);
+                setError("HATA!")
+            });
+    }
+
+    const cityInfo = CITIES.find(function (cInfo) {
+        return cInfo.name === city.trim().toLowerCase();
+    });
+
+    console.log("city", city)
+
+    function onChange(e) {
+        setCity(e.target.value)
+        fetchWeather(cityInfo)
+
+    }
+
+
+    /* const cities = axios('https://api.openweathermap.org/data/2.5/weather?q=Burdur&appid=44d66f46cb89e2e484c0cfe9a25a9308')
 			.then((res) => res.data)
 			.catch((e) => console.log(e));
 
-    /* console.log(cities) */
 
     const { handleSubmit, handleChange, values } = useFormik({
 		initialValues: cities,
 		onSubmit: (values) => {
 			console.log(values);
 		},
-	});
+	}); */
     
     /* const [cities, setCities] = useState([]); */
 
@@ -44,11 +85,11 @@ function Cities() {
     
 
     return (
-        <form onSubmit={handleSubmit}>
-            <select name="city" value={cities.name} onChange={handleChange}>
+        <form  onChange={(e) => onChange(e)}>
+            <select name="city">
                {
                    CITIES.map((city, i) => (
-                      <option value={city} key={i}>{city}</option>
+                      <option  key={i}>{city.name}</option>
                    ))
                }
             </select>
@@ -59,7 +100,6 @@ function Cities() {
             <div>
                 {JSON.stringify(values)}
             </div>
-            <Weather values={values} handleSubmit={handleSubmit} handleChange={handleChange}/>
         </form>
     )
 }

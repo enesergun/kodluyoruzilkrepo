@@ -16,7 +16,8 @@ import CITIES from '../cities'
 
 
 /* axios('api.openweathermap.org/data/2.5/weather?q=Burdur&appid=44d66f46cb89e2e484c0cfe9a25a9308') */   
-const API_URL = "https://api.openweathermap.org/data/2.5/onecall?units=metric&lang=tr&";
+const API_URL = "https://api.openweathermap.org/data/2.5/onecall?units=metric&lang=tr&"; // ${API_URL}lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&appid=${API_KEY}
+//"https://api.openweathermap.org/data/2.5/onecall?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&exclude=current,minutely,hourly,alerts&appid=${API key}"
 const API_KEY = "44d66f46cb89e2e484c0cfe9a25a9308"                 
 /* {
             return CITIES.indexOf(cInfo);
@@ -24,7 +25,7 @@ const API_KEY = "44d66f46cb89e2e484c0cfe9a25a9308"
 
 function Cities() {
     const [city, setCity] = useState("ankara");
-     const [weatherInfo, setWeatherInfo] = useState(null);
+     const [weatherInfo, setWeatherInfo] = useState([]);
     const [error, setError] = useState(null);
 
 
@@ -37,7 +38,7 @@ function Cities() {
 
 
     function fetchWeather(cityInfo) {
-        axios(`${API_URL}lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&appid=${API_KEY}`)
+        axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&exclude=current,minutely,hourly,alerts&appid=${API_KEY}`)
             .then(response => {
                 setWeatherInfo(response.data);
             })
@@ -82,25 +83,30 @@ function Cities() {
 
     /* const data = axios('https://api.openweathermap.org/data/2.5/weather?q=Burdur&appid=44d66f46cb89e2e484c0cfe9a25a9308').then((resp) => console.log(resp.data)) // axiosla datayı cekiorum */
     
+
     
 
     return (
-        <form  onChange={(e) => onChange(e)}>
-            <select name="city">
-               {
-                   CITIES.map((city, i) => (
-                      <option  key={i}>{city.name}</option>
-                   ))
-               }
-            </select>
+        <div>
+            <form  onChange={(e) => onChange(e)}>
+                <select name="city">
+                {
+                    CITIES.map((city, i) => (
+                        <option  key={i}>{city.name}</option>
+                    ))
+                }
+                </select>
 
-            <br />
-            <br />
+                <br />
+                <br />
 
-            <div>
-                {JSON.stringify(values)}
-            </div>
-        </form>
+                {/* <div>
+                    {JSON.stringify(values)}
+                </div> */}
+            </form>
+            <Weather values={values}/>
+        </div>
+        
     )
 }
 

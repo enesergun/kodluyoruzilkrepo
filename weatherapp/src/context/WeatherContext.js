@@ -4,9 +4,7 @@ import axios from 'axios';
 import CITIES from '../cities'
 
  
-const API_URL = "https://api.openweathermap.org/data/2.5/onecall?units=metric&lang=tr&"; 
-const API_KEY = "44d66f46cb89e2e484c0cfe9a25a9308"
-
+const API_KEY = "a8e0802b5bb7b33a62b61f79c6716145"
 
 const WeatherContext = createContext(null);
 
@@ -14,7 +12,7 @@ const WeatherContext = createContext(null);
 export const WeatherProvider = ({ children }) => {
 
     const [city, setCity] = useState("ankara");
-    const [weatherInfo, setWeatherInfo] = useState([]);
+    const [weatherInfo, setWeatherInfo] = useState(null);
     const [error, setError] = useState(null);
 
 
@@ -22,9 +20,15 @@ export const WeatherProvider = ({ children }) => {
         city,
         error,
         setCity,
-        weatherInfo
+        weatherInfo,
+        setWeatherInfo,
+        setError
     };
+    
+    
 
+    // api.openweathermap.org/data/2.5/onecall?lat=38.8&lon=12.09&callback=test
+    // https://api.openweathermap.org/data/2.5/onecall?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&exclude=current,minutely,hourly,alerts&appid=${API_KEY}
 
     function fetchWeather(cityInfo) {
         axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&exclude=current,minutely,hourly,alerts&appid=${API_KEY}`)
@@ -32,7 +36,7 @@ export const WeatherProvider = ({ children }) => {
                 setWeatherInfo(response.data);
             })
             .catch(err => {
-                console.log(err);
+                
                 setError("HATA!")
             });
     }
@@ -41,28 +45,23 @@ export const WeatherProvider = ({ children }) => {
         return cInfo.name === city.trim().toLowerCase();
     });
 
-    console.log("city", city)
 
-    function onChange(e) {
-        setCity(e.target.value)
-        fetchWeather(cityInfo)
+    console.log(city, weatherInfo)
 
-    }
+    /* useEffect(() => {
+        const ankara = CITIES.find(c => {
+            return c.name === "ankara";
+        });
+        fetchWeather(ankara);
+    }, []) */
+
+    useEffect((city) => {
+        console.log(city)
+    }, [])
+
 
     return (
-        <div>
-            <form  onChange={(e) => onChange(e)}>
-                <select name="city">
-                {
-                    CITIES.map((city, i) => (
-                        <option  key={i}>{city.name}</option>
-                    ))
-                }
-                </select>
-            </form>
-            <WeatherContext.Provider value={values}>{children}</WeatherContext.Provider>
-        </div>
-        
+        <WeatherContext.Provider value={values}>{children}</WeatherContext.Provider>
     )
 }
 

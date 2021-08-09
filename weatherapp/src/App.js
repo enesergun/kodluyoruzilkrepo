@@ -1,16 +1,17 @@
 import './App.css';
-import React, { useEffect } from 'react'
+import React from 'react'
 
 
 
-import Cities from './components/Cities'
+import  { WeatherProvider } from './context/WeatherContext'
 import Weather from './components/Weather'
 
 function App() {
   return (
     <div className="App">
-      <Cities />
-      <Weather />
+      <WeatherProvider>
+        <Weather />
+      </WeatherProvider>
     </div>
   );
 }

@@ -22,7 +22,19 @@ function Weather() {
         <div className="container">
             
             <div className="days">
-                <div className="day">
+                {
+                    weatherInfo.daily.map((day, i) => (
+                        <div className="day" key={i}>
+                            <div className="dayName">{i}</div>
+                            <div className="weatherIcon"></div>
+                            <div className="temps">
+                                <div className="min">{day.temp.min}</div>
+                                <div className="max">{day.temp.max}</div>
+                            </div>
+                        </div>
+                    ) )
+                }
+                 {/* <div className="day">
                     <div className="dayName">Wed</div>
                     <div className="weatherIcon"></div>
                     <div className="temps">{weatherInfo.daily[0].temp.max}</div>
@@ -59,9 +71,9 @@ function Weather() {
                 </div>
 
                 <br />
-                <br />
+                <br /> */}
 
-               {/*  {JSON.stringify(weatherInfo.daily[0].temp.max)} */}
+              
             </div>
             
              

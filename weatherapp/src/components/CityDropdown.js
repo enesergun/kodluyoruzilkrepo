@@ -17,8 +17,8 @@ function CityDropdown() {
             <form  onChange={(e) => onChange(e)}>
                 <select name="city">
                 {
-                    CITIES.map((city, i) => (
-                        <option  key={i}>{city.name}</option>
+                    Object.keys(CITIES[0]).map((city, i) => (
+                        <option key={i}>{city}</option>
                     ))
                 }
                 </select>

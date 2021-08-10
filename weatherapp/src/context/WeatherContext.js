@@ -12,17 +12,15 @@ const WeatherContext = createContext(null);
 export const WeatherProvider = ({ children }) => {
 
     const [city, setCity] = useState("ankara");
-    const [weatherInfo, setWeatherInfo] = useState(null);
-    const [error, setError] = useState(null);
+    const [weatherInfo, setWeatherInfo] = useState([]);
+    /* const [error, setError] = useState(null); */
 
 
     const values = {
         city,
-        error,
         setCity,
         weatherInfo,
         setWeatherInfo,
-        setError
     };
     
     
@@ -30,23 +28,10 @@ export const WeatherProvider = ({ children }) => {
     // api.openweathermap.org/data/2.5/onecall?lat=38.8&lon=12.09&callback=test
     // https://api.openweathermap.org/data/2.5/onecall?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&exclude=current,minutely,hourly,alerts&appid=${API_KEY}
 
-    function fetchWeather(cityInfo) {
-        axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityInfo.latitude}&lon=${cityInfo.longitude}&exclude=current,minutely,hourly,alerts&appid=${API_KEY}`)
-            .then(response => {
-                setWeatherInfo(response.data);
-            })
-            .catch(err => {
-                
-                setError("HATA!")
-            });
-    }
-
-    const cityInfo = CITIES.find(function (cInfo) {
-        return cInfo.name === city.trim().toLowerCase();
-    });
+    
 
 
-    console.log(city, weatherInfo)
+    
 
     /* useEffect(() => {
         const ankara = CITIES.find(c => {
@@ -55,9 +40,8 @@ export const WeatherProvider = ({ children }) => {
         fetchWeather(ankara);
     }, []) */
 
-    useEffect((city) => {
-        console.log(city)
-    }, [])
+    console.log(city)
+    console.log(weatherInfo)
 
 
     return (

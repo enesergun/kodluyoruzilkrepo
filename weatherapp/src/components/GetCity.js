@@ -1,38 +1,19 @@
-import React from 'react'
-import { useContext } from "react"
-import WeatherContext from '../context/WeatherContext'
+import axios from "axios";
 import CITIES from '../cities'
-import axios from 'axios';
 
 
-const API_KEY = "b352577505407626b1cf515aaf82ff08"
 
+const API_KEY = "a8e0802b5bb7b33a62b61f79c6716145"
 
-function GetCity() {
-    const { city, setWeatherInfo, setError} = useContext(WeatherContext)
+/* const cityName = CITIESI.find(function (cInfo) {
+    return cInfo.name === CITIES.trim().toLowerCase();
+}); */
 
-    function fetchWeather(cityInfo) {
-        axios(`https://jsonplaceholder.typicode.com/users`)
-            .then(response => {
-                setWeatherInfo(response.data);
-            })
-            .catch(err => {
-                
-                setError("HATA!")
-            });
-    }
+export const search = async (cityName) => {
 
-    const cityInfo = CITIES.find(function (cInfo) {
-        return cInfo.name === city.trim().toLowerCase();
-    });
+    const getData  = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${CITIES[0][cityName].latitude}&lon=${CITIES[0][cityName].longitude}&exclude=current,minutely,hourly,alerts&appid=${API_KEY}`);
 
+    const dailyForecastList = getData.data
 
-    
-    return (
-        <div>
-            
-        </div>
-    )
+    return dailyForecastList
 }
-
-export default GetCity

@@ -1,11 +1,18 @@
 import React from 'react'
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import WeatherContext from '../context/WeatherContext'
+import { search } from './GetCity'
 
+import CITIES from '../cities'
 
 
 function Weather() {
-    const { city, error, setCity ,weatherInfo, } = useContext(WeatherContext); 
+    const { city,setWeatherInfo, weatherInfo } = useContext(WeatherContext);
+    
+    
+    useEffect(() => {
+        search(city).then( (dailyForecastList) => setWeatherInfo(dailyForecastList))
+    }, [city, setWeatherInfo ])
     
     return (
         <div className="container">
@@ -14,7 +21,7 @@ function Weather() {
                 <div className="day">
                     <div className="dayName">Wed</div>
                     <div className="weatherIcon"></div>
-                    <div className="temps"></div>
+                    <div className="temps">{weatherInfo.lat}</div>
                 </div>
                 <div className="day">
                     <div className="dayName">Wed</div>
@@ -49,6 +56,8 @@ function Weather() {
 
                 <br />
                 <br />
+
+                {/* {JSON.stringify(weatherInfo.daily[0].temp.max)} */}
             </div>
             
              

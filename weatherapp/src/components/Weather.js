@@ -8,6 +8,10 @@ import CITIES from '../cities'
 
 function Weather() {
     const { city,setWeatherInfo, weatherInfo } = useContext(WeatherContext);
+
+    if (weatherInfo === []) {
+        
+    }
     
     
     useEffect(() => {
@@ -21,7 +25,7 @@ function Weather() {
                 <div className="day">
                     <div className="dayName">Wed</div>
                     <div className="weatherIcon"></div>
-                    <div className="temps">{weatherInfo.lat}</div>
+                    <div className="temps">{weatherInfo.daily[0].temp.max}</div>
                 </div>
                 <div className="day">
                     <div className="dayName">Wed</div>
@@ -57,7 +61,7 @@ function Weather() {
                 <br />
                 <br />
 
-                {/* {JSON.stringify(weatherInfo.daily[0].temp.max)} */}
+               {/*  {JSON.stringify(weatherInfo.daily[0].temp.max)} */}
             </div>
             
              

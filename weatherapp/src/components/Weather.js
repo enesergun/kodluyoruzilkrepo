@@ -26,10 +26,12 @@ function Weather() {
                     weatherInfo.daily.map((day, i) => (
                         <div className="day" key={i}>
                             <div className="dayName">{i}</div>
-                            <div className="weatherIcon"></div>
+                            <div className="weatherIcon">
+                                <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt="" />
+                            </div>
                             <div className="temps">
-                                <div className="min">{day.temp.min}</div>
                                 <div className="max">{day.temp.max}</div>
+                                <div className="min">{day.temp.min}</div>
                             </div>
                         </div>
                     ) )

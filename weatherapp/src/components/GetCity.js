@@ -11,7 +11,7 @@ const API_KEY = "a8e0802b5bb7b33a62b61f79c6716145"
 
 export const search = async (cityName) => {
 
-    const getData  = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${CITIES[0][cityName].latitude}&lon=${CITIES[0][cityName].longitude}&units=metric&exclude=current,minutely,hourly,alerts&appid=${API_KEY}`);
+    const getData  = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${CITIES[0][cityName].latitude}&lon=${CITIES[0][cityName].longitude}&units=metric&exclude=minutely,hourly,alerts&appid=${API_KEY}`);
 
     const dailyForecastList = getData.data
 

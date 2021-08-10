@@ -27,12 +27,6 @@ form select {
   align-items: center;
 }
 
-.weatherIcon {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background-color: brown;
-}
 
 .temps {
   display: flex;
@@ -42,4 +36,8 @@ form select {
 .max,
 .min {
   margin: 5px;
+}
+
+.max {
+  font-weight: bold;
 }

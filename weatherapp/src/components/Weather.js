@@ -37,50 +37,13 @@ function Weather() {
                                 <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt="" />
                             </div>
                             <div className="temps">
-                                <div className="max">{day.temp.max}</div>
-                                <div className="min">{day.temp.min}</div>
+                                <div className="max">{parseInt(day.temp.max)}°</div>
+                                <div className="min">{parseInt(day.temp.min)}°</div>
                             </div>
                         </div>
                     ) )
                 }
-                 {/* <div className="day">
-                    <div className="dayName">Wed</div>
-                    <div className="weatherIcon"></div>
-                    <div className="temps">{weatherInfo.daily[0].temp.max}</div>
-                </div>
-                <div className="day">
-                    <div className="dayName">Wed</div>
-                    <div className="weatherIcon"></div>
-                    <div className="temps">77 64</div>
-                </div>
-                <div className="day">
-                    <div className="dayName">Wed</div>
-                    <div className="weatherIcon"></div>
-                    <div className="temps">77 64</div>
-                </div>
-                <div className="day">
-                    <div className="dayName">Wed</div>
-                    <div className="weatherIcon"></div>
-                    <div className="temps">77 64</div>
-                </div>
-                <div className="day">
-                    <div className="dayName">Wed</div>
-                    <div className="weatherIcon"></div>
-                    <div className="temps">77 64</div>
-                </div>
-                <div className="day">
-                    <div className="dayName">Wed</div>
-                    <div className="weatherIcon"></div>
-                    <div className="temps">77 64</div>
-                </div>
-                <div className="day">
-                    <div className="dayName">Wed</div>
-                    <div className="weatherIcon"></div>
-                    <div className="temps">77 64</div>
-                </div>
-
-                <br />
-                <br /> */}
+                 
 
               
             </div>

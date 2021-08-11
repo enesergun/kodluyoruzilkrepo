@@ -3,7 +3,7 @@ import CITIES from '../cities'
 
 
 
-const API_KEY = "a8e0802b5bb7b33a62b61f79c6716145"
+const API_KEY = "44d66f46cb89e2e484c0cfe9a25a9308"
 
 /* const cityName = CITIESI.find(function (cInfo) {
     return cInfo.name === CITIES.trim().toLowerCase();

@@ -6,12 +6,19 @@ import { search } from './GetCity'
 import CITIES from '../cities'
 
 
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+
 function Weather() {
     const { city,setWeatherInfo, weatherInfo } = useContext(WeatherContext);
 
-    if (weatherInfo === []) {
-        
-    }
+    const dayArray = weatherInfo.daily.map((d)=> {
+        const date = new Date(d.dt * 1000)
+        return date.getDay()
+    })
+
+    const daysShort = ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cts"];
+    
     
     
     useEffect(() => {
@@ -25,7 +32,7 @@ function Weather() {
                 {
                     weatherInfo.daily.map((day, i) => (
                         <div className="day" key={i}>
-                            <div className="dayName">{i}</div>
+                            <div className="dayName">{daysShort[dayArray[i]]}</div>
                             <div className="weatherIcon">
                                 <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt="" />
                             </div>

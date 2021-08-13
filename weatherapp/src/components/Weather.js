@@ -3,11 +3,6 @@ import { useContext, useEffect } from "react"
 import WeatherContext from '../context/WeatherContext'
 import { search } from './GetCity'
 
-import CITIES from '../cities'
-
-
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
 
 function Weather() {
     const { city,setWeatherInfo, weatherInfo } = useContext(WeatherContext);

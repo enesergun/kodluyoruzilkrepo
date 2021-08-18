@@ -1,8 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
+import React from 'react';
+import {render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom'
 
-it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<App />, div);
+import Header from './Header';
+import App from './App'
+
+describe('emoji search app testleri', () => {
+  
+  beforeEach(() => {
+    render(<Header />)
+  });
+
+  test("header kısmı render edilmeli", () => {
+    const headerContext = screen.getByText('Emoji Search')
+    expect(headerContext).toBeInTheDocument();
+
+  });
+
 });
+

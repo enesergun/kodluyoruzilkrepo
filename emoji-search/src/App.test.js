@@ -4,12 +4,13 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom'
 
 import Header from './Header';
-import App from './App'
+import EmojiResultRow from './EmojiResultRow'
 
 describe('emoji search app testleri', () => {
   
   beforeEach(() => {
     render(<Header />)
+
   });
 
   test("header kısmı render edilmeli", () => {
@@ -17,6 +18,8 @@ describe('emoji search app testleri', () => {
     expect(headerContext).toBeInTheDocument();
 
   });
+
+ 
 
 });
 

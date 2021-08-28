@@ -20,3 +20,10 @@ test("emojiler basarili sekilde render edilmeli", () => {
   expect(emojiWrapper.childNodes.length).toEqual(20);
 });
 
+test("emoji ismi girince filtreleme basarılı sekilde yapılmalı", () => {
+  render(<App />);
+  const emojiName = document.getElementsByTagName("input");
+  userEvent.type(emojiName[0], "love");
+  expect(screen.getByText("Four Leaf Clover"));
+
+});

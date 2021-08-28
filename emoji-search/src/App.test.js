@@ -27,3 +27,13 @@ test("emoji ismi girince filtreleme basarılı sekilde yapılmalı", () => {
   expect(screen.getByText("Four Leaf Clover"));
 
 });
+
+test("emoji tiklanma basarili olmalı", () => {
+  render(<App />);
+
+  const clicked = screen.getByTestId("all-emojies").firstChild;
+  document.execCommand = jest.fn();
+  userEvent.click(clicked);
+  expect(document.execCommand).toHaveBeenCalledWith("copy")
+
+});

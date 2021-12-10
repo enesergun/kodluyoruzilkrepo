@@ -1,0 +1,20 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(109, 70, 20);
+    color: white;
+    max-width: 700px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.malzemeler {
+    margin: 15px;
+}
+
+.yapilisi {
+    margin: 15px;
+}
